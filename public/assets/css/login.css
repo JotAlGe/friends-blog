@@ -1,0 +1,71 @@
+body{
+    background: #f6f9fc;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+
+}
+.container{
+    filter: drop-shadow(-66px 36px 35px lightgrey);
+}
+
+.logo{
+    max-width: 100%;
+    display: grid;
+    place-items: center;
+}
+.logo-img{
+    max-width: 50%;
+}
+
+.account-block{
+    padding: 0;
+    /* background-image: url(https://bootdey.com/img/Content/bg1.jpg); */
+    background-image: url('https://images.unsplash.com/photo-1582298538104-fe2e74c27f59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(.15rem);
+    height: 100%;
+    position: relative;
+
+}
+.register{
+    background-image: url('https://images.unsplash.com/photo-1621112904887-419379ce6824?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80');
+}
+
+.account-block .overlay {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.account-block .account-testimonial {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+}
+
+.text-theme {
+    color: #1e7a5d !important;
+}
+
+.btn-theme {
+    background-color: #1e7a5d;
+    border-color: #1e7a5d;
+    color: #fff;
+}
+
+.account-testimonial{
+    z-index: 100;
+}
