@@ -45,14 +45,13 @@
     <body>
         <div id="main-wrapper" class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-10">
+                <div class="col-xl-12 col-md-12">
                     <div class="card border-0">
                         <div class="card-body p-0">
                             <div class="row no-gutters">
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <div class="mb-5 logo">
-                                            {{-- <h3 class="h4 font-weight-bold text-theme">Login</h3> --}}
                                             <img src="{{ asset('assets/images/logo.jpg') }}" class="logo-img">
                                         </div>
 
@@ -61,6 +60,8 @@
 
                                         <form action="{{ route('register') }}" method="post">
                                             @csrf
+
+                                            {{--name  --}}
                                             <div class="form-group">
                                                 <label for="exampleInputEmail">Nombre:</label>
                                                 <input placeholder="Ingrese su nombre..." type="text" name="name"
@@ -70,6 +71,30 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
+
+                                            {{-- lastname --}}
+                                            <div class="form-group">
+                                                <label for="lastname">Apellido:</label>
+                                                <input placeholder="Ingrese su apellido..." type="text" name="lastname"
+                                                    class="form-control" id="lastname">
+
+                                                @error('lastname')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+
+                                            {{-- username --}}
+                                            <div class="form-group">
+                                                <label for="username">Usuario:</label>
+                                                <input placeholder="Ingrese un nombre de usuario..." type="text"
+                                                    name="username" class="form-control" id="username">
+
+                                                @error('username')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+
+                                            {{-- email --}}
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Correo</label>
                                                 <input placeholder="Ingrese su email..." type="email" name="email"
@@ -79,6 +104,8 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
+
+                                            {{-- password --}}
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Contraseña</label>
                                                 <input placeholder="Ingrese una contraseña..." type="password"
@@ -89,7 +116,8 @@
                                                 @enderror
                                             </div>
 
-                                            <div class="form-group mb-5">
+                                            {{-- password repeat --}}
+                                            <div class="form-group">
                                                 <label for="exampleInputPassword1">Repetir la contraseña</label>
                                                 <input placeholder="Repetir contraseña..." type="password"
                                                     name="password_confirmation" class="form-control"
@@ -99,6 +127,10 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
+
+
+
+                                            {{-- submit --}}
                                             <button type="submit" class="btn btn-theme">Registrarse</button>
                                             <a href="#l" class="forgot-link float-right text-primary">¿Olvidaste tu
                                                 contraseña?</a>
