@@ -1,34 +1,3 @@
-{{-- <form action="{{ route('register') }}" method="post">
-@csrf
-
-<input placeholder="Ingrese su nombre..." type="text" name="name"><br>
-@error('name')
-{{ $message }}
-@enderror
-<br>
-
-<input placeholder="Ingrese su email..." type="email" name="email"><br>
-@error('email')
-{{ $message }}
-@enderror
-<br>
-
-<input placeholder="Ingrese una contraseña..." type="password" name="password"><br>
-@error('password')
-{{ $message }}
-@enderror
-<br>
-
-<input placeholder="Repetir contraseña..." type="password" name="password_confirmation"><br>
-@error('password_confirmation')
-{{ $message }}
-@enderror
-<br>
-
-<input type="submit" value="Registrarse">
-</form>
---}}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Login</title>
+        <title>Register</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
@@ -64,8 +33,8 @@
                                             {{--name  --}}
                                             <div class="form-group">
                                                 <label for="exampleInputEmail">Nombre:</label>
-                                                <input placeholder="Ingrese su nombre..." type="text" name="name"
-                                                    class="form-control" id="exampleInputEmail">
+                                                <x-form.input placeholder="Ingrese su nombre..." type="text" name="name"
+                                                    id="exampleInputEmail" />
 
                                                 @error('name')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -75,8 +44,9 @@
                                             {{-- lastname --}}
                                             <div class="form-group">
                                                 <label for="lastname">Apellido:</label>
-                                                <input placeholder="Ingrese su apellido..." type="text" name="lastname"
-                                                    class="form-control" id="lastname">
+
+                                                <x-form.input placeholder="Ingrese su apellido..." type="text"
+                                                    name="lastname" id="lastname" />
 
                                                 @error('lastname')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -86,8 +56,10 @@
                                             {{-- username --}}
                                             <div class="form-group">
                                                 <label for="username">Usuario:</label>
-                                                <input placeholder="Ingrese un nombre de usuario..." type="text"
-                                                    name="username" class="form-control" id="username">
+
+                                                <x-form.input name="username" placeholder="Nombre de usuario..."
+                                                    id="username" />
+
 
                                                 @error('username')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -96,9 +68,10 @@
 
                                             {{-- email --}}
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Correo</label>
-                                                <input placeholder="Ingrese su email..." type="email" name="email"
-                                                    class="form-control" id="exampleInputEmail1">
+                                                <label for="email">Correo</label>
+
+                                                <x-form.input placeholder="Ingrese su email..." type="email"
+                                                    name="email" id="email" />
 
                                                 @error('email')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -107,9 +80,10 @@
 
                                             {{-- password --}}
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Contraseña</label>
-                                                <input placeholder="Ingrese una contraseña..." type="password"
-                                                    name="password" class="form-control" id="exampleInputPassword1">
+                                                <label for="password">Contraseña</label>
+
+                                                <x-form.input placeholder="Ingrese una contraseña..." type="password"
+                                                    name="password" id="password" />
 
                                                 @error('password')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -118,10 +92,9 @@
 
                                             {{-- password repeat --}}
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Repetir la contraseña</label>
-                                                <input placeholder="Repetir contraseña..." type="password"
-                                                    name="password_confirmation" class="form-control"
-                                                    id="exampleInputPassword1">
+                                                <label for="password_confirmation">Repetir la contraseña</label>
+                                                <x-form.input placeholder="Repetir contraseña..." type="password"
+                                                    name="password_confirmation" id="password_confirmation" />
 
                                                 @error('password_confirmation')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -131,7 +104,8 @@
 
 
                                             {{-- submit --}}
-                                            <button type="submit" class="btn btn-theme">Registrarse</button>
+
+                                            <x-form.input type="submit" class="btn btn-theme" value="Registrarse" />
                                             <a href="#l" class="forgot-link float-right text-primary">¿Olvidaste tu
                                                 contraseña?</a>
                                         </form>

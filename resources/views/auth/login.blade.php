@@ -31,8 +31,9 @@
                                             @csrf
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Correo</label>
-                                                <input placeholder="Email o nombre de usuario..." type="username"
-                                                    name="username" class="form-control" id="exampleInputEmail1">
+
+                                                <x-form.input placeholder="Email o nombre de usuario..." type="username"
+                                                    name="username" class="form-control" id="exampleInputEmail1" />
 
                                                 @error('username')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -40,14 +41,17 @@
                                             </div>
                                             <div class="form-group mb-5">
                                                 <label for="exampleInputPassword1">Contraseña</label>
-                                                <input placeholder="Ingrese una contraseña..." type="password"
-                                                    name="password" class="form-control" id="exampleInputPassword1">
+
+                                                <x-form.input placeholder="Ingrese una contraseña..." type="password"
+                                                    name="password" class="form-control" id="exampleInputPassword1" />
 
                                                 @error('password')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <button type="submit" class="btn btn-theme">Entrar</button>
+                                            {{-- <button type="submit" class="btn btn-theme">Entrar</button> --}}
+                                            <x-form.input type="submit" class="btn btn-theme" value="Login" />
+
                                             <a href="#l" class="forgot-link float-right text-primary">¿Olvidaste tu
                                                 contraseña?</a>
                                         </form>
