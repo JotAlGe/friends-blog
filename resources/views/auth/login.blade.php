@@ -21,7 +21,6 @@
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <div class="mb-5 logo">
-                                            {{-- <h3 class="h4 font-weight-bold text-theme">Login</h3> --}}
                                             <img src="{{ asset('assets/images/logo.jpg') }}" class="logo-img">
                                         </div>
 
@@ -32,10 +31,10 @@
                                             @csrf
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Correo</label>
-                                                <input placeholder="Ingrese su email..." type="email" name="email"
-                                                    class="form-control" id="exampleInputEmail1">
+                                                <input placeholder="Email o nombre de usuario..." type="username"
+                                                    name="username" class="form-control" id="exampleInputEmail1">
 
-                                                @error('email')
+                                                @error('username')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
