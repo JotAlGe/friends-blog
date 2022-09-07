@@ -1,42 +1,53 @@
-{{-- header --}}
-<header class="p-3 mb-3 border-bottom">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-around">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                <img src="{{ asset('assets/images/logo.jpg') }}" alt="Logo" width="100">
-            </a>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            </form>
+<link rel="stylesheet" href="{{asset('assets/css/header.css')}}">
 
-            <div class="dropdown text-end">
-                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle show" id="dropdownUser1"
-                    data-bs-toggle="dropdown" aria-expanded="true">
-                    <img src="{{ asset('assets/images/'. Auth::user()->profile_photo)}}" alt="mdo" width="32"
-                        height="32" class="rounded-circle">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark px-5">
+    <a href="#" class="navbar-brand">
+        <img src="{{asset('assets/images/logo.jpg')}}">
 
-                </a>
-                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" data-popper-placement="bottom-end"
-                    style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(-110px, 34px);">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                </ul>
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+        <form class="navbar-form form-inline">
+            <div class="input-group search-box">
+                <input type="text" id="search" class="form-control" placeholder="Search here...">
+                <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+            </div>
+        </form>
+        <div class="navbar-nav ml-auto">
+            <a href="#" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
+            <a href="#" class="nav-item nav-link"><i class="fa fa-gears"></i><span>Projects</span></a>
+            <a href="#" class="nav-item nav-link"><i class="fa fa-users"></i><span>Team</span></a>
+            <a href="#" class="nav-item nav-link"><i class="fa fa-pie-chart"></i><span>Reports</span></a>
+            <a href="#" class="nav-item nav-link"><i class="fa fa-briefcase"></i><span>Careers</span></a>
+            <a href="#" class="nav-item nav-link"><i class="fa fa-envelope"></i><span>Messages</span></a>
+            <a href="#" class="nav-item nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a>
+            <div class="nav-item dropdown">
+                <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img
+                        src=" {{ asset('assets/images/'. Auth::user()->profile_photo) }} " class="avatar" alt="Avatar">
+                    Antonio Moreno <b class="caret"></b></a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+                    <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>
+                    <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a>
+                    <div class="divider dropdown-divider"></div>
+
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <x-form.input type="submit" value="Cerrar Sesión" class="dropdown-item text-danger" />
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</header>
+</nav>
 
-<script>
-    const a = document.getElementById('dropdownUser1')
-    const ul = document.querySelector('.dropdown-menu')
 
-    a.addEventListener('click', function(){
-        ul.classList.toggle('show')
-    })
-</script>
+@include('partials.scripts')

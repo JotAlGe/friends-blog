@@ -34,7 +34,7 @@
                                             <div class="form-group">
                                                 <label for="exampleInputEmail">Nombre:</label>
                                                 <x-form.input placeholder="Ingrese su nombre..." type="text" name="name"
-                                                    id="exampleInputEmail" />
+                                                    id="exampleInputEmail" value="{{ old('name') }}" />
 
                                                 @error('name')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -46,7 +46,7 @@
                                                 <label for="lastname">Apellido:</label>
 
                                                 <x-form.input placeholder="Ingrese su apellido..." type="text"
-                                                    name="lastname" id="lastname" />
+                                                    name="lastname" id="lastname" value="{{ old('lastname') }}" />
 
                                                 @error('lastname')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -58,7 +58,7 @@
                                                 <label for="username">Usuario:</label>
 
                                                 <x-form.input name="username" placeholder="Nombre de usuario..."
-                                                    id="username" />
+                                                    id="username" value="{{ old('username') }}" />
 
 
                                                 @error('username')
@@ -71,7 +71,7 @@
                                                 <label for="email">Correo</label>
 
                                                 <x-form.input placeholder="Ingrese su email..." type="email"
-                                                    name="email" id="email" />
+                                                    name="email" id="email" value="{{ old('email') }}" />
 
                                                 @error('email')
                                                 <span class="text-danger">{{ $message }}</span>

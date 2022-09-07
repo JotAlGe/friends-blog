@@ -30,18 +30,21 @@
                                         <form action="{{ route('login') }}" method="post">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Correo</label>
 
+                                                {{-- email or username --}}
+                                                <label for="exampleInputEmail1">Correo</label>
                                                 <x-form.input placeholder="Email o nombre de usuario..." type="username"
-                                                    name="username" class="form-control" id="exampleInputEmail1" />
+                                                    name="username" class="form-control" id="exampleInputEmail1"
+                                                    value="{{ old('username') }}" />
 
                                                 @error('username')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="form-group mb-5">
-                                                <label for="exampleInputPassword1">Contraseña</label>
 
+                                            <div class="form-group mb-5">
+                                                {{-- password --}}
+                                                <label for="exampleInputPassword1">Contraseña</label>
                                                 <x-form.input placeholder="Ingrese una contraseña..." type="password"
                                                     name="password" class="form-control" id="exampleInputPassword1" />
 
@@ -49,7 +52,7 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            {{-- <button type="submit" class="btn btn-theme">Entrar</button> --}}
+                                            {{-- submit --}}
                                             <x-form.input type="submit" class="btn btn-theme" value="Login" />
 
                                             <a href="#l" class="forgot-link float-right text-primary">¿Olvidaste tu
@@ -61,12 +64,7 @@
                                 <div class="col-lg-6 d-none d-lg-inline-block">
                                     <div class="account-block rounded-right">
                                         <div class="overlay rounded-right"></div>
-                                        {{-- <div class="account-testimonial">
-                                            <h4 class="text-white mb-4">This beautiful theme yours!</h4>
-                                            <p class="lead text-white">"Best investment i made for a long time. Can only
-                                                recommend it for other users."</p>
-                                            <p>- Admin User</p>
-                                        </div> --}}
+
                                     </div>
                                 </div>
                             </div>

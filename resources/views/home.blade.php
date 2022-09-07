@@ -1,19 +1,3 @@
-{{-- home
-
-<p>{{ auth()->id() }}</p>
-<p>{{ auth()->user()->name }}</p>
-<p>{{ auth()->user()->lastname }}</p>
-<p>{{ auth()->user()->username }}</p>
-<p>{{ auth()->user()->email }}</p>
-
-<img src="{{ asset('assets/images/user.png') }}" width="50"><br>
-<img src="{{ asset('assets/images/portada.png') }}" width="100%" height="300px">
-
-
-<form action="{{ route('logout') }}" method="post">
-    @csrf
-    <input type="submit" value="Logout">
-</form> --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,30 +19,11 @@
 
         <div class="container">
 
-            <div class="row justify-content-center">
-                <div class="col-md-offset-3 col-md-7 col-xs-12">
-                    <div class="well well-sm well-social-post">
-                        <form>
-                            <ul class="list-inline" id='list_PostActions'>
-                                <li class='active'><a href='#'>Update status</a></li>
-                                {{-- <li><a href='#'>Add photos/Video</a></li>
-                                <li><a href='#'>Create photo album</a></li> --}}
-                            </ul>
-                            <textarea class="form-control" placeholder="What's in your mind?"></textarea>
-                            <ul class='list-inline post-actions'>
-                                <li><a href="#"><span class="glyphicon glyphicon-camera"></span></a></li>
-                                <li><a href="#" class='glyphicon glyphicon-user'></a></li>
-                                <li><a href="#" class='glyphicon glyphicon-map-marker'></a></li>
-                                <li class='pull-right mb-3 mt-1'><a href="#" class='btn btn-primary btn-xs'>Post</a>
-                                </li>
-                            </ul>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            {{-- post form --}}
+            @include('partials.post')
+
 
             <div class="col-md-7 mx-auto">
-
                 <div class="social-feed-box">
 
                     <div class="pull-right social-action dropdown">
