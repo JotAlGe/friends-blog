@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Occupation extends Model
 {
     use HasFactory;
+
+    // users
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
