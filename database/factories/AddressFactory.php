@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Street;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'street_id' => Street::inRandomOrder()->first()->id
         ];
     }
 }

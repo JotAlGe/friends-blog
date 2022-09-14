@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Color;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'description' => fake()->word(),
+            'color_id' => Color::inRandomOrder()->first()->id
         ];
     }
 }

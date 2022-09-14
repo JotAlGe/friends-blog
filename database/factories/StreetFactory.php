@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Locality;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Street>
@@ -17,7 +19,9 @@ class StreetFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name_street' => fake()->words(Str::random()),
+            'nro_street' => fake()->numerify(),
+            'locality_id' => Locality::inRandomOrder()->first()->id
         ];
     }
 }

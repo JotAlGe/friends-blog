@@ -17,7 +17,7 @@ class IconFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'description' => fake()->imageUrl(20, 20, null, true)
         ];
     }
 }
