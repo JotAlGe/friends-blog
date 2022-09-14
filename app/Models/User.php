@@ -77,4 +77,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Address::class)->withDefault();
     }
+
+    // status
+    public function status()
+    {
+        return $this->belongsTo(Status::class)->withDefault();
+    }
 }

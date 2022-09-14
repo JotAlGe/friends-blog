@@ -7,9 +7,9 @@
 
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark px-5">
     <a href="#" class="navbar-brand">
-        <img src="{{asset('assets/images/logo.jpg')}}">
-
+        <img src="{{asset('assets/images/logo-horizontal.png')}}">
     </a>
+
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
