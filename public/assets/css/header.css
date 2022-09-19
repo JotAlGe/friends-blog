@@ -13,13 +13,17 @@ body {
         margin-bottom: 1%;
     }
 
-    .navbar img {
+
+    .navbar .logo {
         border-radius: 50%;
-        min-width: 150px;
+        max-width: 200px;
         height: auto;
+        object-fit: cover;
         margin-right: 10px;
     }
-
+    .avatar{
+        max-width: 50px;
+    }
     .navbar .navbar-brand {
         color: #efe5ff;
         padding-left: 0;

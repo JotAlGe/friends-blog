@@ -19,7 +19,7 @@ class StatusFactory extends Factory
     {
         return [
             'description' => fake()->word(),
-            'icon_id' => Icon::inOrderRandom()->first()->id
+            'icon_id' => Icon::inRandomOrder()->first()->id
         ];
     }
 }

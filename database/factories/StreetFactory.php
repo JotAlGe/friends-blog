@@ -19,7 +19,7 @@ class StreetFactory extends Factory
     public function definition()
     {
         return [
-            'name_street' => fake()->words(Str::random()),
+            'name_street' => fake()->word(),
             'nro_street' => fake()->numerify(),
             'locality_id' => Locality::inRandomOrder()->first()->id
         ];

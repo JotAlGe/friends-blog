@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="{{asset('assets/css/header.css')}}">
 
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark px-5">
-    <a href="#" class="navbar-brand">
-        <img src="{{asset('assets/images/logo-horizontal.png')}}">
+    <a href="{{ route('home') }}" class="navbar-brand">
+        <img src="{{asset('assets/images/logo-horizontal.png')}}" class="logo">
     </a>
 
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -31,7 +31,8 @@
             <a href="#" class="nav-item nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a>
             <div class="nav-item dropdown">
                 <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img
-                        src=" {{ asset('assets/images/'. Auth::user()->profile_photo) }} " class="avatar" alt="Avatar">
+                        src=" {{ asset('assets/images/'. Auth::user()->profile_photo) }} " class="avatar" width="50"
+                        alt="Avatar">
                     Antonio Moreno <b class="caret"></b></a>
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>

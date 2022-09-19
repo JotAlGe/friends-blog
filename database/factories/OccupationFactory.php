@@ -18,7 +18,7 @@ class OccupationFactory extends Factory
     public function definition()
     {
         return [
-            'description' => fake()->words(Str::random())
+            'description' => fake()->word()
         ];
     }
 }
