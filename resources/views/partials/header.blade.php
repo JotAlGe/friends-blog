@@ -22,18 +22,12 @@
             </div>
         </form>
         <div class="navbar-nav ml-auto">
-            <a href="#" class="nav-item nav-link active"><i class="fa fa-home"></i><span>Home</span></a>
-            <a href="#" class="nav-item nav-link"><i class="fa fa-gears"></i><span>Projects</span></a>
-            <a href="#" class="nav-item nav-link"><i class="fa fa-users"></i><span>Team</span></a>
-            <a href="#" class="nav-item nav-link"><i class="fa fa-pie-chart"></i><span>Reports</span></a>
-            <a href="#" class="nav-item nav-link"><i class="fa fa-briefcase"></i><span>Careers</span></a>
-            <a href="#" class="nav-item nav-link"><i class="fa fa-envelope"></i><span>Messages</span></a>
             <a href="#" class="nav-item nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a>
             <div class="nav-item dropdown">
                 <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img
                         src=" {{ asset('assets/images/'. Auth::user()->profile_photo) }} " class="avatar" width="50"
                         alt="Avatar">
-                    Antonio Moreno <b class="caret"></b></a>
+                    {{ auth()->user()->name }} <b class="caret"></b></a>
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
                     <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>

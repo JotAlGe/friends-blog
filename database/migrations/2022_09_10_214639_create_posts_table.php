@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->text('description', 1000);
+            $table->string('photo')->default(null)->nullable();
 
             $table->foreignId('user_id')
                 ->nullable()
