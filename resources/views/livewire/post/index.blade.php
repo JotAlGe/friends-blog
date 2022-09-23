@@ -12,10 +12,12 @@
         </div>
         <div class="social-avatar">
             <a href="#" class="pull-left">
-                <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                <img alt="image" src="{{$post->user->profile_photo}}">
             </a>
             <div class="media-body">
-                <a href="#">
+                <a href="{{ route('users.show', [
+                    'user' => $post->user
+                ]) }}">
                     {{ $post->user->name }} {{ $post->user->lastname }}
                 </a>
                 <small class="text-muted">{{ $post->created_at->diffForHumans() }}</small>
@@ -63,10 +65,12 @@
 
             <div class="social-comment mx-4">
                 <a href="#" class="pull-left">
-                    <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                    <img alt="image" src="{{$comment->user->profile_photo}}">
                 </a>
                 <div class="media-body text-secondary">
-                    <a href="#">
+                    <a href="{{ route('users.show', [
+                        'user' => $comment->user
+                    ]) }}">
                         {{ $comment->user->name }} {{ $comment->user->lastname }}
                     </a>
                     {{ $comment->description }}
@@ -80,7 +84,7 @@
             {{-- ---------------- comment form -------------------- --}}
             <div class="social-comment">
                 <a href="" class="pull-left">
-                    <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                    <img alt="image" src="{{asset('assets/images/'.auth()->user()->profile_photo)}}">
                 </a>
                 <div class="media-body">
                     <textarea class="form-control" placeholder="Escribe un comentario..."></textarea>
