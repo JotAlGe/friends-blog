@@ -56,7 +56,7 @@
                                         d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18">
                                     </path>
                                 </svg>
-                                <a class="pt-1px d-none d-md-block" href="#">Timeline</a>
+                                <a class="pt-1px d-none d-md-block" href="{{route('home')}}">Inicio</a>
                             </li>
                             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

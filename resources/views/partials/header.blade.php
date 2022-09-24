@@ -29,7 +29,8 @@
                         alt="Avatar">
                     {{ auth()->user()->name }} <b class="caret"></b></a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a>
+                    <a href="{{route('users.show', Auth::user())}}" class="dropdown-item"><i class="fa fa-user-o"></i>
+                        Profile</a>
                     <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>
                     <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a>
                     <div class="divider dropdown-divider"></div>

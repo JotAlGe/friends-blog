@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'lastname',
         'username',
+        'slug',
         'email',
         'password',
         'profile_photo',
@@ -47,6 +48,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     //posts
     public function posts()

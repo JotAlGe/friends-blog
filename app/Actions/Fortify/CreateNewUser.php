@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Illuminate\Support\Str;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -35,10 +36,12 @@ class CreateNewUser implements CreatesNewUsers
             'password_confirmation' => 'required'
         ])->validate();
 
+        $name = $input['name'] . ' ' . $input['lastname'];
         return User::create([
             'name' => $input['name'],
             'lastname' => $input['lastname'],
             'username' => $input['username'],
+            'slug' => Str::slug($name, '-'),
             'email' => $input['email'],
             'password' => Hash::make($input['password'])
         ]);
