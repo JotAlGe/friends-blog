@@ -21,7 +21,7 @@
 
 
             {{-- post form --}}
-            @include('partials.post')
+            @livewire('post.create')
 
 
             <div class="col-md-7 mx-auto">

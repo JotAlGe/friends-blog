@@ -17,7 +17,7 @@
             <div class="media-body">
                 <a href="{{ route('users.show', [
                     'user' => $post->user
-                ]) }}">
+                ])}}">
                     {{ $post->user->name }} {{ $post->user->lastname }}
                 </a>
                 <small class="text-muted">{{ $post->created_at->diffForHumans() }}</small>
@@ -29,8 +29,8 @@
             </p>
 
             {{-- post with photo --}}
-            @if ($post->photo != '')
-            <img src="{{$post->photo}}" class="img-responsive">
+            @if ($post->photo != null)
+            <img src="{{$post->post_picture_url}}" class="img-responsive">
             @endif
 
             @if ($post->likes->count() > 0)
@@ -70,7 +70,7 @@
                 <div class="media-body text-secondary">
                     <a href="{{ route('users.show', [
                         'user' => $comment->user
-                    ]) }}">
+                    ])}}">
                         {{ $comment->user->name }} {{ $comment->user->lastname }}
                     </a>
                     {{ $comment->description }}

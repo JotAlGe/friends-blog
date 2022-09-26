@@ -21,7 +21,7 @@ class PostFactory extends Factory
     {
         return [
             'description' => fake()->text(),
-            'photo' => fake()->imageUrl(640, 480),
+            'photo' => null,
             'user_id' => User::inRandomOrder()->first()->id,
             'category_id' => Category::inRandomOrder()->first()->id
         ];

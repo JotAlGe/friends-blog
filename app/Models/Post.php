@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['description', 'photo'];
+    protected $fillable = ['description', 'photo', 'user_id', 'category_id'];
 
     //category
     public function category()
@@ -33,5 +34,10 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function getPostPictureUrlAttribute(): string
+    {
+        return Storage::disk('public')->url($this->photo);
     }
 }
