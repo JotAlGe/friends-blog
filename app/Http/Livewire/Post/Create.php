@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Post;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
@@ -12,6 +13,7 @@ class Create extends Component
     use WithFileUploads;
     public $description;
     public $photo;
+    public $category_id;
 
     protected $rules = [
         'description' => ['required', 'max:1000'],
@@ -29,14 +31,18 @@ class Create extends Component
         $this->validate();
         Post::create([
             'description' => $this->description,
-            'photo' => $this->photo->store('posts', 'public'),
+            'photo' => $this->photo != null ? $this->photo->store('posts', 'public') : null,
             'user_id' => auth()->user()->id,
-            'category_id' => 1
+            'category_id' => $this->category_id
         ]);
+        $this->reset(['description', 'photo']);
     }
+
 
     public function render()
     {
-        return view('livewire.post.create');
+        return view('livewire.post.create', [
+            'categories' => Category::all()
+        ]);
     }
 }

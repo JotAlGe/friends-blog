@@ -10,6 +10,27 @@
             padding: 6px 12px;
             cursor: pointer;
         }
+
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid rgba(30, 122, 93, .8);
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: none;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
     <div class="row justify-content-center">
         <div class="col-md-offset-3 col-md-7 col-xs-12">
@@ -35,7 +56,15 @@
                             <label for="file-upload" class="custom-file-upload1">
                                 <i class="fa fa-cloud-upload"></i> Foto
                             </label>
-                            <input id="file-upload" type="file" wire:model="photo" />
+                            <input id="file-upload" type="file" wire:model="photo" wire:loading.attr="disabled"
+                                wire:target="photo, store" />
+                            <select wire:model="category_id">
+                                <option selected>Elige una categoría</option>
+                                @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->description}}</option>
+
+                                @endforeach
+                            </select>
                         </li>
 
                         <li class='pull-right mb-3 mt-1'>
@@ -45,13 +74,8 @@
                         </li>
                     </ul>
                 </form>
+                <span wire:loading.block wire:target="photo, store" class="loader mx-auto"></span>
 
-                <div wire:loading.class="mx-auto" wire:loading wire:target="photo">
-                    Cargando foto...
-                </div>
-                <div wire:loading.class="mx-auto" wire:loading wire:target="store">
-                    Publicando...
-                </div>
             </div>
         </div>
     </div>
