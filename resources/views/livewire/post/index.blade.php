@@ -33,19 +33,13 @@
             <img src="{{$post->post_picture_url}}" class="img-responsive">
             @endif
 
-            @if ($post->likes->count() > 0)
-            <div>
-                <a href="#" class="small"><i class="fa fa-thumbs-up"></i>
-                    {{$post->likes->count()}}
-                </a>
-            </div>
-
-            @endif
             <div class="btn-group d-flex justify-content-between">
                 <div>
-                    <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i>Like</button>
-                    <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i> Comment</button>
-                    <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Share</button>
+                    @livewire('like.create', [
+                    'post' => $post->id,
+                    'user' => auth()->user()->id
+                    ])
+
                 </div>
                 <div>
                     <small>
