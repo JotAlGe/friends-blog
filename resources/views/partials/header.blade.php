@@ -15,10 +15,14 @@
     </button>
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-        <form class="navbar-form form-inline">
+        <form class="navbar-form form-inline" action="{{ route('posts.index') }}">
+            @csrf
             <div class="input-group search-box">
-                <input type="text" id="search" class="form-control" placeholder="Search here...">
-                <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+                <input type="text" id="search" class="form-control" placeholder="Search here..." name="search">
+                <button type="submit">
+                    {{-- <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span> --}}
+                    Buscar
+                </button>
             </div>
         </form>
         <div class="navbar-nav ml-auto">

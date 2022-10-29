@@ -12,10 +12,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('posts.index', [
+            'posts' => Post::orderBy('description', 'desc')
+                ->where('description', 'like', "%{$request->get('search')}%")->get()
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.

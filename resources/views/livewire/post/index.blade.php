@@ -12,7 +12,8 @@
         </div>
         <div class="social-avatar">
             <a href="#" class="pull-left">
-                <img alt="image" src="{{$post->user->profile_photo}}">
+                <img alt="image"
+                    src="{{Auth::user()->id === $post->user_id ? asset('assets/images/user.png') : $post->user->profile_photo}}">
             </a>
             <div class="media-body">
                 <a href="{{ route('users.show', [
