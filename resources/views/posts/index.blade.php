@@ -1,5 +1,5 @@
 @include('partials.head')
-
+@livewireStyles()
 {{-- headers --}}
 @include('partials.header')
 <div class="container">
@@ -17,7 +17,8 @@
             </div>
             <div class="social-avatar">
                 <a href="#" class="pull-left">
-                    <img alt="image" src="{{$post->user->profile_photo}}">
+                    <img alt="image"
+                        src="{{Auth::user()->id === $post->user_id ? asset('assets/images/user.png') : $post->user->profile_photo}}">
                 </a>
                 <div class="media-body">
                     <a href="{{ route('users.show', [
@@ -60,35 +61,10 @@
 
             {{----------------- comments list -------------------}}
             <div class="social-footer">
-                @foreach ($post->comments as $comment)
-
-                <div class="social-comment mx-4">
-                    <a href="#" class="pull-left">
-                        <img alt="image" src="{{$comment->user->profile_photo}}">
-                    </a>
-                    <div class="media-body text-secondary">
-                        <a href="{{ route('users.show', [
-                        'user' => $comment->user
-                    ])}}">
-                            {{ $comment->user->name }} {{ $comment->user->lastname }}
-                        </a>
-                        {{ $comment->description }}
-                        <br>
-
-                        <small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
-                    </div>
-                </div>
-                @endforeach
-
-                {{-- ---------------- comment form -------------------- --}}
-                <div class="social-comment">
-                    <a href="" class="pull-left">
-                        <img alt="image" src="{{asset('assets/images/'.auth()->user()->profile_photo)}}">
-                    </a>
-                    <div class="media-body">
-                        <textarea class="form-control" placeholder="Escribe un comentario..."></textarea>
-                    </div>
-                </div>
+                @livewire('comment.create', [
+                'post' => $post->id,
+                'comments' => $post->comments
+                ])
 
             </div>
 
@@ -100,4 +76,5 @@
     </div>
 </div>
 
+@livewireScripts()
 @include('partials.scripts')
